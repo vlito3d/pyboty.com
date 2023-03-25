@@ -71,6 +71,43 @@ i.fab {
   color: #6f42c1;
 }
 
+#webgl {
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  z-index: -1;
+  text-align: center;
+}
+
+#webgl2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  outline: none;
+  z-index: 2;
+  text-align: center;
+}
+
+#bg-box {
+  width: 802px;
+  height: 602px;
+  position: absolute;
+  z-index: -1;
+
+}
+
+.svg-box {
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  z-index: 1;
+
+  #robot {
+    cursor: pointer;
+  }
+}
+
 
 body {
   margin-top: 0;
@@ -82,6 +119,9 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: center;
+
+
+
   background-color: #fff; }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
