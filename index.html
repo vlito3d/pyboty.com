@@ -411,17 +411,48 @@
 					<!-- End Single Plan-->
 				</div>
 				<p style="margin-top: 15px;"><strong>After click on Contact Us, you have to open a tickets in our discord's channel, here we explain all features and about method payment. Also send an email</strong></p>
-				<p style="margin-top: 35px;">❤<strong>HELLO WORLD</strong>❤</p>
-
-				<p style="margin-bottom: 35px;">❤<strong>Thanks, see you next time</strong>❤</p>
+				<div id="primary-content" class="centered-pen">
+					<h1 class="display-3">❤ HELLO WORLD ! ❤</h1>
+					<p class="lead">Meet PyBoty, your new personal assistant in the all the internet !</p>
+					<div class="personal-assistant">
+						<div id="felix" class="felix" onclick="activateFelix();">
+							<div class="eyes">
+								<div class="eye left"></div>
+								<div class="eye right"></div>
+							</div>
+						</div>
+						<div class="platform"></div>
+						<ul class="command-list">
+							<li><i class="far fa-clouds" onclick="getWeather();"></i></li>
+							<li><i class="far fa-clock" onclick="getTime();"></i></li>
+							<li><i class="far fa-calendar-alt" onclick="getDate();"></i></li>
+							<li><i class="far fa-grin-squint-tears" onclick="tellJoke();"></i></li>
+							<li><i class="far fa-search" onclick="searchGoogle();"></i></li>
+							<li><i class="far fa-lightbulb-on" onclick="showInspiration();"></i></li>
+							<p class="hey-felix lead"></p>
+						</ul>
+					</div>
+					<div id="response-frame" class="response-frame">
+						<p id="response-message" class="lead"></p>
+						<i class="fas fa-times" onclick="closeResponse();"></i>
+					</div>
+				</div>
+				<p style="margin-top: 45px;">❤<strong>Thanks, see you next time</strong>❤</p>
 				<hr> <!-- espace ajouté ici -->
 				<p>&copy; 2023 PyBoty. All Rights Reserved.</p>	
 			</div>	
+
 		</section>	
 		<!-- End Pricing Table Style 6 -->
+		<!-- Jquery JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>			
+		<!-- Jquery JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<!-- Jquery JS -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-
-
+		<!-- Jquery JS -->
+		<script src="js/robot.js"></script>
 		<!-- Jquery JS -->
 		<script src="js/jquery-3.5.1.min.js"></script>
 		<!-- Modernizr JS (required only for plan 6) -->
