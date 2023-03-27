@@ -8029,6 +8029,336 @@ a.text-dark:hover, a.text-dark:focus {
 .command-list > li:nth-child(6) { transform: translateX(-100px) translateY(45px); }
 .command-list > li:nth-child(6):hover ~ .hey-felix::after { content: "Hey Felix, what inspires you?"; }
 
+/* Felix */
+.personal-assistant {
+	position: relative;
+	margin-top: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+}
+.felix {
+	position: absolute;
+	bottom: 50px;
+	width: 110px;
+	height: 95px;
+	border-radius: 45%;
+	border: 3px solid #fff;
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+	animation: breathe-and-jump 3s linear infinite;
+	cursor: pointer;
+	z-index: 1;
+}
+.felix::before {
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: calc(100% + 3px);
+	height: calc(100% + 2px);
+	background-color: #18c;
+	background: linear-gradient(to bottom, #5fc, #1a8);
+	background: -webkit-linear-gradient(to bottom, #5cf, #18c);
+	border-radius: 45%;
+	opacity: 0;
+	transition: 0.3s linear all;
+}
+.felix > .eyes { position: relative; }
+.felix > .eyes > .eye {
+	position: absolute;
+	top: 20px;
+	width: 20px;
+	height: 25px;
+	border-radius: 15px;
+	background-color: #fff;
+	box-shadow: 0 0 7px rgba(255, 255, 255, 0.5);
+	animation: blink 5s linear infinite;
+}
+.felix > .eyes > .eye.left { left: 25%; }
+.felix > .eyes > .eye.right { right: 25%; }
+
+/* Platforms */
+.platform {
+	transform: rotateX(70deg);
+	width: 100px;
+	height: 100px;
+	box-shadow: 0 0 100px #fff,
+		         0 0 15px #fff inset;
+	animation: jump-pulse 3s linear infinite;
+}
+.platform,
+.command-list > li::before {
+	border-radius: 50%;
+	transition: 0.2s linear all;
+}
+.command-list > li::before {
+	content: '';
+	position: absolute;
+	bottom: -35px;
+	left: 50%;
+	width: 65px;
+	height: 65px;
+	transform: translate(-50%) rotateX(70deg);
+	box-shadow: 0 0 50px #fff,
+		         0 0 15px #fff inset;
+}
+
+/* Hover */
+.felix:not(.active):hover {
+	animation: shake-to-alert 0.5s linear;
+	height: 105px;
+	transform: translateY(-4px);
+}
+.felix:not(.active):hover,
+.felix:not(.active):hover > .eyes > .eye {
+	border-color: #fc5;
+	box-shadow: 0 0 5px #fc5;
+}
+.felix:not(.active):hover + .platform {
+	box-shadow: 0 0 100px #fc5,
+		         0 0 15px #fc5 inset;
+	animation: shake-pulse 0.5s linear;
+}
+
+/* Awaiting Command */
+.felix.active { animation: bounce-then-breathe 5s linear infinite; }
+.felix.active::before { opacity: 1; }
+.felix.active,
+.felix.active > .eyes > .eye {
+	border-color: #5fc;
+	box-shadow: 0 0 5px #5fc;
+}
+.felix.active + .platform {
+	box-shadow: 0 0 100px #5fc,
+		         0 0 25px #5fc inset;
+	animation: bounce-pulse 5s linear;
+}
+
+/* Deactivation */
+.felix.inactive {
+	animation: deactivate 0.75s linear,
+				  breathe-and-jump 3s linear infinite;
+}
+.felix.inactive + .platform {
+	animation: deactivate-platform 0.75s linear;
+}
+
+/* Command List */
+.command-list {
+	position: absolute;
+	bottom: 35px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	z-index: 0;
+}
+.command-list > li {
+	display: none;
+	width: 45px;
+	height: 45px;
+	line-height: 37px;
+	font-size: 25px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 0 5px #fff;
+	margin: 10px 12px;
+	cursor: pointer;
+	opacity: 0;
+}
+.felix.active ~ .command-list > li {
+	display: inline-block;
+	animation: fade-in 1s linear forwards;
+}
+.command-list > li:hover {
+	border-color: #5cf;
+	box-shadow: 0 0 5px #5cf;
+}
+.command-list > li:hover::before {
+	box-shadow: 0 0 50px #5cf,
+		         0 0 15px #5cf inset;
+}
+.command-list > li:hover > i { color: #5cf; }
+.command-list > li:nth-child(1) { transform: translateX(100px) translateY(45px); }
+.command-list > li:nth-child(1):hover ~ .hey-felix::after { content: "Hey Felix, how's the weather?"; }
+.command-list > li:nth-child(2) { transform: translateX(-15px) translateY(-15px); }
+.command-list > li:nth-child(2):hover ~ .hey-felix::after { content: "Hey Felix, what time is it?"; }
+.command-list > li:nth-child(3) { transform: translateX(-35px) translateY(-55px); }
+.command-list > li:nth-child(3):hover ~ .hey-felix::after { content: "Hey Felix, what's today?"; }
+.command-list > li:nth-child(4) { transform: translateX(35px) translateY(-55px); }
+.command-list > li:nth-child(4):hover ~ .hey-felix::after { content: "Hey Felix, tell me a joke."; }
+.command-list > li:nth-child(5) { transform: translateX(15px) translateY(-15px); }
+.command-list > li:nth-child(5):hover ~ .hey-felix::after { content: "Hey Felix..."; }
+.command-list > li:nth-child(6) { transform: translateX(-100px) translateY(45px); }
+.command-list > li:nth-child(6):hover ~ .hey-felix::after { content: "Hey Felix, what inspires you?"; }
+
+/* Felix */
+.personal-assistant {
+	position: relative;
+	margin-top: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+}
+.felix {
+	position: absolute;
+	bottom: 50px;
+	width: 110px;
+	height: 95px;
+	border-radius: 45%;
+	border: 3px solid #fff;
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+	animation: breathe-and-jump 3s linear infinite;
+	cursor: pointer;
+	z-index: 1;
+}
+.felix::before {
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: calc(100% + 3px);
+	height: calc(100% + 2px);
+	background-color: #18c;
+	background: linear-gradient(to bottom, #5fc, #1a8);
+	background: -webkit-linear-gradient(to bottom, #5cf, #18c);
+	border-radius: 45%;
+	opacity: 0;
+	transition: 0.3s linear all;
+}
+.felix > .eyes { position: relative; }
+.felix > .eyes > .eye {
+	position: absolute;
+	top: 20px;
+	width: 20px;
+	height: 25px;
+	border-radius: 15px;
+	background-color: #fff;
+	box-shadow: 0 0 7px rgba(255, 255, 255, 0.5);
+	animation: blink 5s linear infinite;
+}
+.felix > .eyes > .eye.left { left: 25%; }
+.felix > .eyes > .eye.right { right: 25%; }
+
+/* Platforms */
+.platform {
+	transform: rotateX(70deg);
+	width: 100px;
+	height: 100px;
+	box-shadow: 0 0 100px #fff,
+		         0 0 15px #fff inset;
+	animation: jump-pulse 3s linear infinite;
+}
+.platform,
+.command-list > li::before {
+	border-radius: 50%;
+	transition: 0.2s linear all;
+}
+.command-list > li::before {
+	content: '';
+	position: absolute;
+	bottom: -35px;
+	left: 50%;
+	width: 65px;
+	height: 65px;
+	transform: translate(-50%) rotateX(70deg);
+	box-shadow: 0 0 50px #fff,
+		         0 0 15px #fff inset;
+}
+
+/* Hover */
+.felix:not(.active):hover {
+	animation: shake-to-alert 0.5s linear;
+	height: 105px;
+	transform: translateY(-4px);
+}
+.felix:not(.active):hover,
+.felix:not(.active):hover > .eyes > .eye {
+	border-color: #fc5;
+	box-shadow: 0 0 5px #fc5;
+}
+.felix:not(.active):hover + .platform {
+	box-shadow: 0 0 100px #fc5,
+		         0 0 15px #fc5 inset;
+	animation: shake-pulse 0.5s linear;
+}
+
+/* Awaiting Command */
+.felix.active { animation: bounce-then-breathe 5s linear infinite; }
+.felix.active::before { opacity: 1; }
+.felix.active,
+.felix.active > .eyes > .eye {
+	border-color: #5fc;
+	box-shadow: 0 0 5px #5fc;
+}
+.felix.active + .platform {
+	box-shadow: 0 0 100px #5fc,
+		         0 0 25px #5fc inset;
+	animation: bounce-pulse 5s linear;
+}
+
+/* Deactivation */
+.felix.inactive {
+	animation: deactivate 0.75s linear,
+				  breathe-and-jump 3s linear infinite;
+}
+.felix.inactive + .platform {
+	animation: deactivate-platform 0.75s linear;
+}
+
+/* Command List */
+.command-list {
+	position: absolute;
+	bottom: 35px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	z-index: 0;
+}
+.command-list > li {
+	display: none;
+	width: 45px;
+	height: 45px;
+	line-height: 37px;
+	font-size: 25px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	box-shadow: 0 0 5px #fff;
+	margin: 10px 12px;
+	cursor: pointer;
+	opacity: 0;
+}
+.felix.active ~ .command-list > li {
+	display: inline-block;
+	animation: fade-in 1s linear forwards;
+}
+.command-list > li:hover {
+	border-color: #5cf;
+	box-shadow: 0 0 5px #5cf;
+}
+.command-list > li:hover::before {
+	box-shadow: 0 0 50px #5cf,
+		         0 0 15px #5cf inset;
+}
+.command-list > li:hover > i { color: #5cf; }
+.command-list > li:nth-child(1) { transform: translateX(100px) translateY(45px); }
+.command-list > li:nth-child(1):hover ~ .hey-felix::after { content: "Hey Felix, how's the weather?"; }
+.command-list > li:nth-child(2) { transform: translateX(-15px) translateY(-15px); }
+.command-list > li:nth-child(2):hover ~ .hey-felix::after { content: "Hey Felix, what time is it?"; }
+.command-list > li:nth-child(3) { transform: translateX(-35px) translateY(-55px); }
+.command-list > li:nth-child(3):hover ~ .hey-felix::after { content: "Hey Felix, what's today?"; }
+.command-list > li:nth-child(4) { transform: translateX(35px) translateY(-55px); }
+.command-list > li:nth-child(4):hover ~ .hey-felix::after { content: "Hey Felix, tell me a joke."; }
+.command-list > li:nth-child(5) { transform: translateX(15px) translateY(-15px); }
+.command-list > li:nth-child(5):hover ~ .hey-felix::after { content: "Hey Felix..."; }
+.command-list > li:nth-child(6) { transform: translateX(-100px) translateY(45px); }
+.command-list > li:nth-child(6):hover ~ .hey-felix::after { content: "Hey Felix, what inspires you?"; }
+
 /* Hey Felix */
 .hey-felix {
 	position: relative;
